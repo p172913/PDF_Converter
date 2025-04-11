@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ../backend  # Ensure this points to the backend directory
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../backend/uploads:/app/uploads
+
+  frontend:
+    build:
+      context: ../frontend  # Ensure this points to the frontend directory
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../frontend/public:/app/public
+    command: npm run dev  # Ensure this runs the Vite development server
