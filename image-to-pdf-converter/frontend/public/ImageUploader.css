@@ -7,7 +7,6 @@ body {
   background-size: cover; /* Cover the entire background */
   background-repeat: no-repeat; /* Prevent repeating the background image */
 }
-
 .image-uploader {
   max-width: 800px;
   margin: 0 auto;
@@ -51,8 +50,8 @@ button:hover {
 
 .image-row {
   display: flex;
-  justify-content: center; /* Center images in the row */
-  flex-wrap: wrap; /* Allow wrapping to the next line if needed */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  padding: 10px 0; /* Add some padding */
 }
 
 .image-preview {
