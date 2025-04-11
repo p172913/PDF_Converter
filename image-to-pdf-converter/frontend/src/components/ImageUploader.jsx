@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../../public/ImageUploader.css'; // Make sure the path is correct
+import '../../public/ImageUploader.css'; // Ensure the path is correct
 
 const ImageUploader = () => {
     const [files, setFiles] = useState([]);
@@ -8,7 +8,8 @@ const ImageUploader = () => {
     const [error, setError] = useState('');
 
     const handleFileChange = (event) => {
-        setFiles(Array.from(event.target.files));
+        const newFiles = Array.from(event.target.files);
+        setFiles((prevFiles) => [...prevFiles, ...newFiles]);
         setPdfFile('');
         setError('');
     };
@@ -53,10 +54,22 @@ const ImageUploader = () => {
         setFiles(newFiles);
     };
 
+    const handleAddFile = () => {
+        document.getElementById('file-input').click(); // Trigger the file input click
+    };
+
     return (
         <div className="image-uploader">
             <h1>Image to PDF Converter</h1>
-            <input type="file" accept="image/*" multiple onChange={handleFileChange} />
+            <input 
+                type="file" 
+                accept="image/*" 
+                multiple 
+                onChange={handleFileChange} 
+                id="file-input" 
+                style={{ display: 'none' }} // Hide the default file input
+            />
+            <button onClick={handleAddFile}>Choose Files</button>
             <button onClick={handleUpload}>Convert to PDF</button>
             {error && <p className="error">{error}</p>}
             {pdfFile && (
@@ -64,7 +77,8 @@ const ImageUploader = () => {
             )}
 
             <div className="image-preview-container">
-                <h3>Selected Images</h3>
+                <h3 style={{ display: 'inline-block' }}>Selected Images</h3>
+                <button onClick={handleAddFile} style={{ marginLeft: '10px' }}>Add More Images</button>
                 <div className="image-row">
                     {files.map((file, index) => (
                         <div key={index} className="image-preview">
