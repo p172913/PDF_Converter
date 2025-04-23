@@ -70,3 +70,38 @@ services:
       - "8003:8003"  # Map host port 8001 to container port 8001
     volumes:
       - ../word-to-pdf-converter/backend:/app
+  jpg-to-png-converter-frontend:
+    build:
+      context: ../jpg-to-png-converter/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3004:3004"  # Map host port 3001 to container port 3001
+    volumes:
+      - ../jpg-to-png-converter/frontend:/app
+
+  jpg-to-png-converter-backend:
+    build:
+      context: ../jpg-to-png-converter/backend
+      dockerfile: Dockerfile
+    ports:
+      - "8004:8004"  # Map host port 8001 to container port 8001
+    volumes:
+      - ../jpg-to-png-converter/backend:/app
+  
+  png-to-jpg-converter-frontend:
+    build:
+      context: ../png-to-jpg-converter/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3005:3005"  # Map host port 3001 to container port 3001
+    volumes:
+      - ../png-to-jpg-converter/frontend:/app
+
+  png-to-jpg-converter-backend:
+    build:
+      context: ../png-to-jpg-converter/backend
+      dockerfile: Dockerfile
+    ports:
+      - "8005:8005"  # Map host port 8001 to container port 8001
+    volumes:
+      - ../png-to-jpg-converter/backend:/app
