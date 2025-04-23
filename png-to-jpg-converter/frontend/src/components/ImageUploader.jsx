@@ -131,37 +131,28 @@ const ImageUploader = () => {
     };
 
     return (
-        <div className="image-uploader-container">
-            <h1 className="title">PNG to JPG Converter</h1>
+        <div className="image-uploader">
+            <h1>JPG to PNG Converter</h1>
 
-            <div className="button-row">
-                <input
-                    type="file"
-                    accept="image/png"
-                    onChange={handleFileChange}
-                    id="file-input"
-                    style={{ display: 'none' }}
-                />
-                <button className="button" onClick={() => document.getElementById('file-input').click()}>
-                    Choose File
-                </button>
-                <button className="button" onClick={handleUpload}>Convert to JPG</button>
-            </div>
+            <input
+                type="file"
+                accept="image/png"
+                onChange={handleFileChange}
+                id="file-input"
+                style={{ display: 'none' }}
+            />
+            <button onClick={() => document.getElementById('file-input').click()}>Choose File</button>
+            <button onClick={handleUpload}>Convert to JPG</button>
 
-            {file && (
-                <div className="file-preview">
-                    <span className="file-name">{file.name}</span>
-                </div>
-            )}
-
+            {file && <p>Selected file: {file.name}</p>}
             {error && <p className="error">{error}</p>}
 
             {downloadLink && (
-                <div className="download-section">
-                    <h3>Download Ready:</h3>
-                    <button className="button download-button" onClick={handleDownload}>
-                        Download {downloadLink}
-                    </button>
+                <div>
+                    <h3>Download Link:</h3>
+                    <button onClick={handleDownload}>Download JPG</button>
+                    <br />
+                    <img src={`http://localhost:8005/uploads/${downloadLink}`} alt="Converted" width="300" />
                 </div>
             )}
         </div>
