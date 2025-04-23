@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+Pillow
+python-multipart
+Flask
+werkzeug
+docx2pdf

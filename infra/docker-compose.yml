@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  image-to-pdf-converter-frontend:
+    build:
+      context: ../image-to-pdf-converter/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"  # Map host port 3000 to container port 3000
+    volumes:
+      - ../image-to-pdf-converter/frontend:/app
+
+  image-to-pdf-converter-backend:
+    build:
+      context: ../image-to-pdf-converter/backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"  # Map host port 8000 to container port 8000
+    volumes:
+      - ../image-to-pdf-converter/backend:/app
+
+  jpg-to-pdf-converter-frontend:
+    build:
+      context: ../jpg-to-pdf-converter/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"  # Map host port 3001 to container port 3001
+    volumes:
+      - ../jpg-to-pdf-converter/frontend:/app
+
+  jpg-to-pdf-converter-backend:
+    build:
+      context: ../jpg-to-pdf-converter/backend
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"  # Map host port 8001 to container port 8001
+    volumes:
+      - ../jpg-to-pdf-converter/backend:/app
+  png-to-pdf-converter-frontend:
+    build:
+      context: ../png-to-pdf-converter/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"  # Map host port 3001 to container port 3001
+    volumes:
+      - ../png-to-pdf-converter/frontend:/app
+
+  png-to-pdf-converter-backend:
+    build:
+      context: ../png-to-pdf-converter/backend
+      dockerfile: Dockerfile
+    ports:
+      - "8002:8002"  # Map host port 8001 to container port 8001
+    volumes:
+      - ../png-to-pdf-converter/backend:/app
+  word-to-pdf-converter-frontend:
+    build:
+      context: ../word-to-pdf-converter/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"  # Map host port 3001 to container port 3001
+    volumes:
+      - ../word-to-pdf-converter/frontend:/app
+
+  word-to-pdf-converter-backend:
+    build:
+      context: ../word-to-pdf-converter/backend
+      dockerfile: Dockerfile
+    ports:
+      - "8003:8003"  # Map host port 8001 to container port 8001
+    volumes:
+      - ../word-to-pdf-converter/backend:/app
