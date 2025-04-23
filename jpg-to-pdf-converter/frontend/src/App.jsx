@@ -13,6 +13,7 @@ const App = () => {
                     <li><a href="http://localhost:3003" target="_blank">Word to PDF</a></li>
                     <li><a href="http://localhost:3004" target="_blank">JPG to PNG</a></li>
                     <li><a href="http://localhost:3005" target="_blank">PNG to JPG</a></li>
+                    <li><a href="http://localhost:3006" target="_blank">Excel to PDF</a></li>
                 </ul>
             </nav>
             <ImageUploader />

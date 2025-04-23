@@ -105,3 +105,21 @@ services:
       - "8005:8005"  # Map host port 8001 to container port 8001
     volumes:
       - ../png-to-jpg-converter/backend:/app
+  
+  excel-to-pdf-converter-frontend:
+    build:
+      context: ../excel-to-pdf-converter/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3006:3006"  # Map host port 3001 to container port 3001
+    volumes:
+      - ../excel-to-pdf-converter/frontend:/app
+
+  excel-to-pdf-converter-backend:
+    build:
+      context: ../excel-to-pdf-converter/backend
+      dockerfile: Dockerfile
+    ports:
+      - "8006:8006"  # Map host port 8001 to container port 8001
+    volumes:
+      - ../excel-to-pdf-converter/backend:/app
